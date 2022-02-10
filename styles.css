@@ -16,8 +16,8 @@ body, .words-reel {
 }
 
 .words-reel {
-    font-size: 24px;
-    max-width: 60%;
+    font-size: 36px;
+    max-width: 50%;
     background-color: honeydew;
     /*
     -webkit-touch-callout: none;
@@ -26,6 +26,22 @@ body, .words-reel {
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none; */
+}
+
+#settings {
+        top:2px;
+        left:2px;
+        position:absolute;
+        width:2%;
+        height:auto;
+}
+
+#stats {
+        top:2px;
+        right:2px;
+        position:absolute;
+        width:2%;
+        height:auto;
 }
 
 .cursor {
@@ -49,9 +65,41 @@ body, .words-reel {
     top:1em;
 }
 
-.values {
+.typed {
     position:absolute;
-    top:0;
-    left:0;
-    align-items: left;
+    top:1%;
+    font-size: 24px;
+}
+
+.btn {
+        border: none;
+        background-color: inherit;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        position:absolute;
+      }
+
+.reset {
+        color: red;
+    }
+    
+.reset:hover {
+        background: #f44336;
+        color: white;
+    }
+
+.statsbody {
+        font-size: 1.2vw;
+        display: inline;
+        max-width: 80%;
+}
+
+.sliderdiv {
+    position:relative;
+    top: 100px;
+}
+
+.slider {
+    width:100%;
 }
