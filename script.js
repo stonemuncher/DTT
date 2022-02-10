@@ -130,7 +130,7 @@ async function save_values() {
 }
 async function load_values() {
         if (localStorage.getItem("chancerequired")) {
-                chance_required = localStorage.getItem("chancerequired");
+                chance_required = Number(localStorage.getItem("chancerequired"))/100;
         }
         if (localStorage.getItem("history")) {
                 totals_history = JSON.parse(localStorage.getItem("history"));
@@ -234,10 +234,18 @@ async function finished_loading() {
 async function get_word(attempt_unknowns) {
 
         if (!attempt_unknowns) {
-                attempt_unknowns = 5;
+                let x = Math.random();
+                if (x > chance_required) {
+                        attempt_unknowns = 0;
+                } else {
+                        attempt_unknowns = 5;
+                }
         }
+        let shuffled = [];
         let required = [];
-        const shuffled = worst_five.sort(() => 0.5 - Math.random());
+        if (attempt_unknowns) {
+                shuffled = worst_five.sort(() => 0.5 - Math.random());
+        }
         if (words_typed > GRACE_WORDS && ready) {
                 for (let i = 0; i < attempt_unknowns; i++) {
                         required.push(shuffled[i][0]);
@@ -247,7 +255,6 @@ async function get_word(attempt_unknowns) {
                         required.push(shuffled[0][0]);
                 }
         }
-        // ADD THE chance_required check
         
         const start = performance.now();
         let word = "";

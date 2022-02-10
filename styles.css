@@ -98,6 +98,7 @@ body, .words-reel {
 .sliderdiv {
     position:relative;
     top: 100px;
+    font-size: 24px;
 }
 
 .slider {
